@@ -12,7 +12,8 @@ class Main:
 
     while user_input.lower() != 'quit':
         if user_input == '1':
-            print(get_hash_map().print())
+            hashmap = get_hash_map()
+            print(hashmap.print())
             quit()
 
 
