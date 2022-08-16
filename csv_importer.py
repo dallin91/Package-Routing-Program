@@ -1,12 +1,11 @@
 import csv
 
-import csvfile as csvfile
 import value as value
 
 from hash_map import HashMap
 
-with open("WGUPS Package File.csv", "wt") as fp:
-    read_csv = csv.reader(csvfile, delimiter=',')
+with open("WGUPS Package File.csv") as csvfile:
+    read_csv = csv.reader(csvfile)
     hash_map = HashMap()
 
     for row in read_csv:
