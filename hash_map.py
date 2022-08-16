@@ -13,7 +13,7 @@ class HashMap:
             hash += ord(char)
         return hash % self.size
 
-    def add(self, key, value):
+    def insert(self, key, value):
         key_hash = self._get_hash(key)
         key_value = [key, value]
 

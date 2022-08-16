@@ -4,14 +4,15 @@
 from csv_importer import get_hash_map
 
 class Main:
-    print("----------WGUPS Routing Program----------")
+    print("\n----------WGUPS Routing Program----------\n")
 
-    user_input = input("UPDATE THIS LATER"
-                       "Type 'quit' if you would like to quit"
-                       "Type '1' if you would like to see hash")
+    user_input = input("UPDATE THIS LATER\n"
+                       "Type 'quit' if you would like to quit\n"
+                       "Type '1' if you would like to see hash\n")
 
     while user_input.lower() != 'quit':
         if user_input == '1':
-            print(get_hash_map())
+            print(get_hash_map().print())
+            quit()
 
 
