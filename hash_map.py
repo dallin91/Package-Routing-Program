@@ -46,7 +46,6 @@ class HashMap:
                 return True
 
     def print(self):
-        print('---ADDRESSES---')
         for item in self.map:
             if item is not None:
                 print(str(item))
