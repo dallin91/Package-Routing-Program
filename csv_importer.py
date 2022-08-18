@@ -4,7 +4,8 @@ from hash_map import HashMap
 
 
 class Package:
-    def __init__(self, id, address, city, state, zip, deadline, weight, note):
+    def __init__(self, id, address, city, state, zip, deadline, weight, note,
+                 start, location, status):
         self.id = id
         self.address = address
         self.city = city
@@ -13,10 +14,14 @@ class Package:
         self.deadline = deadline
         self.weight = weight
         self.note = note
+        self.start = start
+        self.location = location
+        self.status = status
 
     def __str__(self):
-        return "%s, %s, %s, %s, %s, %s, %s, %s" % (self.id, self.address, self.city, self.state,
-                                                   self.zip, self.deadline, self.weight, self.note)
+        return "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s" % (self.id, self.address, self.city, self.state,
+                                                   self.zip, self.deadline, self.weight, self.note,
+                                                               self.start, self.location, self.status)
 
 
 packageHash = HashMap()

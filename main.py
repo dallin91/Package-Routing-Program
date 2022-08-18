@@ -1,7 +1,10 @@
 # Author: Dallin Reeves
 # Created: 15 August 2022
 
-from csv_importer import get_hash_map
+from csv_importer import getPackages
+from csv_importer import loadPackageData
+from hash_map import HashMap
+
 
 class Main:
     print("\n----------WGUPS Routing Program----------\n")
@@ -12,8 +15,9 @@ class Main:
 
     while user_input.lower() != 'quit':
         if user_input == '1':
-            hashmap = get_hash_map()
-            print(hashmap.print())
+            packageHash = HashMap()
+            loadHashMap =
+            print(hashmap)
             quit()
 
 
