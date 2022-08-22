@@ -6,25 +6,32 @@ class HashMap:
         for i in range(initial_capacity):
             self.table.append([])
 
-    def insert(self, item):
+    def insert(self, key, item):
         bucket = hash(item) % len(self.table)
         bucket_list = self.table[bucket]
 
-        bucket_list.append(item)
+        for kv in bucket_list:
+            if kv[0] == key:
+                kv[1] = item
+                return True
+
+        key_value = [key, item]
+        bucket_list.append(key_value)
+        return True
 
     def search(self, key):
         bucket = hash(key) % len(self.table)
         bucket_list = self.table[bucket]
 
-        if key in bucket_list:
-            item_index = bucket_list.index(key)
-            return bucket_list[item_index]
-        else:
-            return None
+        for key_value in bucket_list:
+            if key_value[0] == key:
+                return key_value[1]
+        return None
 
     def remove(self, key):
         bucket = hash(key) % len(self.table)
         bucket_list = self.table[bucket]
 
-        if key in bucket_list:
-            bucket_list.remove(key)
+        for key_value in bucket_list:
+            if key_value[0] == key:
+                bucket_list.remove([key_value[0],key_value[1]])
