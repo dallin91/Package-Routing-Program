@@ -15,7 +15,8 @@ class Main:
 
     while user_input.lower() != 'quit':
         if user_input == '1':
-            packageHash = HashMap()
+            loadPackageData('WGUPS Package File.csv')
+            getPackages()
 
 
 

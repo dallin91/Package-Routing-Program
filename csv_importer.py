@@ -50,9 +50,6 @@ def loadPackageData(filename):
             packageHash.insert(pId, package)
 
 
-loadPackageData('WGUPS Package File.csv')
-
-
 def getPackages():
-    for i in range (len(packageHash)+1):
+    for i in range (len(packageHash.table)+1):
         print("Key: {} and Package: {}".format(i+1, packageHash.search(i+1)))
