@@ -16,8 +16,6 @@ class Main:
     while user_input.lower() != 'quit':
         if user_input == '1':
             packageHash = HashMap()
-            loadHashMap =
-            print(hashmap)
-            quit()
+
 
 

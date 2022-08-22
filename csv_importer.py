@@ -26,6 +26,7 @@ class Package:
 
 packageHash = HashMap()
 
+
 def loadPackageData(filename):
     with open(filename) as packageFile:
         packageData = csv.reader(packageFile, delimiter=',')
@@ -48,10 +49,8 @@ def loadPackageData(filename):
 
             packageHash.insert(pId, package)
 
+
 loadPackageData('WGUPS Package File.csv')
-
-
-
 
 
 def getPackages():
