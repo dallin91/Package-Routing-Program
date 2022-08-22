@@ -1,51 +1,30 @@
-# This code comes from a Hash table tutorial on Youtube which was shared in the course tips
-# Source: https://www.youtube.com/watch?v=9HFbhPscPU0
+# This code comes from the webinar on hash tables
 
 class HashMap:
-    def __init__(self):
-        self.size = 10
-        self.map = [None] * self.size
+    def __init__(self, initial_capacity=10):
+        self.table = []
+        for i in range(initial_capacity):
+            self.table.append([])
 
-# Calculates index and returns index
-    def _get_hash(self, key):
-        hash = 0
-        for char in str(key):
-            hash += ord(char)
-        return hash % self.size
+    def insert(self, item):
+        bucket = hash(item) % len(self.table)
+        bucket_list = self.table[bucket]
 
-    def insert(self, key, value):
-        key_hash = self._get_hash(key)
-        key_value = [key, value]
+        bucket_list.append(item)
 
-        if self.map[key_hash] is None:
-            self.map[key_hash] = list([key_value])
-            return True
+    def search(self, key):
+        bucket = hash(key) % len(self.table)
+        bucket_list = self.table[bucket]
+
+        if key in bucket_list:
+            item_index = bucket_list.index(key)
+            return bucket_list[item_index]
         else:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    pair[1] = value
-                    return True
-            self.map[key_hash].append(key_value)
-            return True
+            return None
 
-    def get(self, key):
-        key_hash = self._get_hash(key)
-        if self.map[key_hash] is not None:
-            for pair in self.map[key_hash]:
-                if pair[0] == key:
-                    return pair[1]
-        return None
+    def remove(self, key):
+        bucket = hash(key) % len(self.table)
+        bucket_list = self.table[bucket]
 
-    def delete(self, key):
-        key_hash = self._get_hash(key)
-        if self.map[key_hash] is None:
-            return False
-        for i in range (0, len(self.map[key_hash])):
-            if self.map[key_hash][i][0] == key:
-                self.map[key_hash].pop(i)
-                return True
-
-    def print(self):
-        for item in self.map:
-            if item is not None:
-                print(str(item))
+        if key in bucket_list:
+            bucket_list.remove(key)
