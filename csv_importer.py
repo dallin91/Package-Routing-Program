@@ -24,9 +24,6 @@ class Package:
                                                                self.start, self.location, self.status)
 
 
-packageHash = HashMap()
-
-
 def loadPackageData(filename):
     with open(filename) as packageFile:
         packageData = csv.reader(packageFile, delimiter=',')
@@ -48,6 +45,9 @@ def loadPackageData(filename):
                               pNote, pStart, pLocation, pStatus)
 
             packageHash.insert(pId, package)
+
+
+packageHash = HashMap()
 
 
 def getPackages():

@@ -17,6 +17,7 @@ class Main:
         if user_input == '1':
             loadPackageData('WGUPS Package File.csv')
             getPackages()
+            break
 
 
 
