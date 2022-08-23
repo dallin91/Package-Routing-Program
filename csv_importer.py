@@ -53,3 +53,4 @@ packageHash = HashMap()
 def getPackages():
     for i in range (len(packageHash.table)+1):
         print("Key: {} and Package: {}".format(i+1, packageHash.search(i+1)))
+    return packageHash

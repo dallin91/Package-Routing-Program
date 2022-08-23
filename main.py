@@ -16,7 +16,9 @@ class Main:
     while user_input.lower() != 'quit':
         if user_input == '1':
             loadPackageData('WGUPS Package File.csv')
-            getPackages()
+            packages = getPackages()
+            print(type(packages))
+            print(len(packages.table))
             break
 
 
