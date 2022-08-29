@@ -28,7 +28,7 @@ class Main:
                 package = packages.search(search_input)
                 print(package)
             except ValueError:
-                print("Whoopsies")
+                print("Invalid input")
                 exit()
 
 
