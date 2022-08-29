@@ -11,15 +11,25 @@ class Main:
 
     user_input = input("UPDATE THIS LATER\n"
                        "Type 'quit' if you would like to quit\n"
-                       "Type '1' if you would like to see hash\n")
+                       "Type 'search' to look up a package\n"
+                       "Type 'hash' if you would like to see hash\n")
 
     while user_input.lower() != 'quit':
-        if user_input == '1':
-            loadPackageData('WGUPS Package File.csv')
-            packages = getPackages()
+        loadPackageData('WGUPS Package File.csv')
+        packages = getPackages()
+        if user_input == 'hash':
             print(type(packages))
             print(len(packages.table))
             break
+        elif user_input == 'search':
+            search_input = input("Enter the ID, delivery address, deadline, city, zip code, "
+                                 "package weight, or delivery status")
+            try:
+                package = packages.search(search_input)
+                print(package)
+            except ValueError:
+                print("Whoopsies")
+                exit()
 
 
 
