@@ -49,7 +49,6 @@ def loadPackageData(filename):
 
 packageHash = HashMap()
 
-
 def getPackageIDs():
     all = []
     for bucket in packageHash.table:
