@@ -26,7 +26,7 @@ class Package:
 
 def loadPackageData(filename):
     with open(filename) as packageFile:
-        packageData = csv.reader(packageFile, delimiter=',')
+        packageData = csv.reader(packageFile)
         next(packageData)
         for package in packageData:
             pId = int(package[0])
@@ -48,6 +48,19 @@ def loadPackageData(filename):
 
 
 packageHash = HashMap()
+
+
+def loadDistanceData(filename):
+    with open(filename) as distanceFile:
+        distances = csv.reader(distanceFile)
+        distances = list(distanceFile)
+    return distances
+
+def loadAddressData(filename):
+    with open(filename) as addressFile:
+        addresses = csv.reader(addressFile)
+        addresses = list(addressFile)
+    return addresses
 
 
 def getPackageIDs():
