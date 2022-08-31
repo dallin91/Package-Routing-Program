@@ -4,12 +4,22 @@
 from csv_importer import getPackageIDs, getPackages
 from csv_importer import loadPackageData, loadDistanceData, loadAddressData
 from hash_map import HashMap
+import trucks
+import datetime
 
+# Load the csv files
 loadPackageData('Packages.csv')
 loadDistanceData('Distances.csv')
 loadAddressData('Addresses.csv')
 packageIDs = getPackageIDs()
 packages = getPackages()
+
+# Create truck objects
+truck1 = trucks.Truck(16,18,datetime.timedelta(hours=8),[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+                      0.0, "4001 South 700 East", None)
+truck2 = trucks.Truck(16,18, datetime.timedelta(hours=8),
+                      [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
+                      0.0, "4001 South 700 East", None)
 
 print("\n----------WGUPS Routing Program----------\n")
 
