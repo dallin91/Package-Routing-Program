@@ -2,10 +2,12 @@
 # Created: 15 August 2022
 
 from csv_importer import getPackageIDs, getPackages
-from csv_importer import loadPackageData
+from csv_importer import loadPackageData, loadDistanceData, loadAddressData
 from hash_map import HashMap
 
 loadPackageData('Packages.csv')
+loadDistanceData('Distances.csv')
+loadAddressData('Addresses.csv')
 packageIDs = getPackageIDs()
 packages = getPackages()
 
