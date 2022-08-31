@@ -49,12 +49,14 @@ def loadPackageData(filename):
 
 packageHash = HashMap()
 
+
 def getPackageIDs():
     all = []
     for bucket in packageHash.table:
         for pair in bucket:
             all.append(pair[0])
     return sorted(all)
+
 
 def getPackages():
     # for i in range (len(packageHash.table)+1):
