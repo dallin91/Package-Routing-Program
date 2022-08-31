@@ -5,7 +5,7 @@ from csv_importer import getPackageIDs, getPackages
 from csv_importer import loadPackageData
 from hash_map import HashMap
 
-loadPackageData('WGUPS Package File.csv')
+loadPackageData('Packages.csv')
 packageIDs = getPackageIDs()
 packages = getPackages()
 
