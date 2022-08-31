@@ -15,6 +15,7 @@ packageIDs = getPackageIDs()
 packages = getPackages()
 
 # Create truck objects
+# I'm only using two trucks because there are only 2 drivers. The 3rd truck is useless without a driver
 truck1 = trucks.Truck(16,18,datetime.timedelta(hours=8),[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
                       0.0, "4001 South 700 East", None)
 truck2 = trucks.Truck(16,18, datetime.timedelta(hours=8),
