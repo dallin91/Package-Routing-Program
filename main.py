@@ -9,7 +9,7 @@ import datetime
 
 # Load the csv files
 loadPackageData('Packages.csv')
-loadDistanceData('Distances.csv')
+
 loadAddressData('Addresses.csv')
 packageIDs = getPackageIDs()
 packages = getPackages()
