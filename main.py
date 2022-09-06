@@ -1,7 +1,7 @@
 # Author: Dallin Reeves   ID: 001176010
 # Created: 15 August 2022
 
-from csv_importer import getPackageIDs, getPackages
+from csv_importer import getPackageIDs, getPackages, packageHash
 from csv_importer import loadPackageData, loadDistanceData, loadAddressData
 from hash_map import HashMap
 import trucks
