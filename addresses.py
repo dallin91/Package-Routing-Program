@@ -10,4 +10,3 @@ def getAddress(address):
             return int(r[0])
 
 
-print(getAddress("4001 South 700 East"))
