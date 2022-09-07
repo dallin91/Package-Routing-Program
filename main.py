@@ -4,6 +4,7 @@
 from csv_importer import getPackageIDs, getPackages, packageHash
 from csv_importer import loadPackageData, loadDistanceData, loadAddressData
 from hash_map import HashMap
+from distances import findDistance
 import trucks
 import datetime
 
