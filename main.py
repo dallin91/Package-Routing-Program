@@ -5,13 +5,13 @@ from csv_importer import getPackageIDs, getPackages, packageHash
 from csv_importer import loadPackageData, loadDistanceData, loadAddressData
 from hash_map import HashMap
 from distances import findDistance
+from addresses import getAddress
 import trucks
 import datetime
 
 # Load the csv files
 loadPackageData('Packages.csv')
 
-loadAddressData('Addresses.csv')
 packageIDs = getPackageIDs()
 packages = getPackages()
 
