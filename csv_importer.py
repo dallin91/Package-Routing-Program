@@ -57,9 +57,7 @@ def loadDistanceData(filename):
 
 def loadAddressData(filename):
     with open(filename) as addressFile:
-        addresses = csv.reader(addressFile)
-        addresses = list(addressFile)
-    return addresses
+        return list(csv.reader(addressFile))
 
 
 def getPackageIDs():
