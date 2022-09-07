@@ -56,6 +56,7 @@ def loadDistanceData(filename):
         distances = list(distanceFile)
     return distances
 
+
 def loadAddressData(filename):
     with open(filename) as addressFile:
         addresses = csv.reader(addressFile)
