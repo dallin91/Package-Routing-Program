@@ -13,7 +13,7 @@ import datetime
 loadPackageData('Packages.csv')
 
 packageIDs = getPackageIDs()
-packages = getPackages()
+packagesHash = getPackages()
 
 # Create truck objects
 # I'm only using two trucks because there are only 2 drivers. The 3rd truck is useless without a driver
@@ -22,6 +22,17 @@ truck1 = trucks.Truck(16,18,datetime.timedelta(hours=8),[1,2,3,4,5,6,7,8,9,10,11
 truck2 = trucks.Truck(16,18, datetime.timedelta(hours=8),
                       [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
                       0.0, "4001 South 700 East", None)
+
+
+def truckDeliverPackages(truck):
+    not_delivered = []
+    for id in truck.packages:
+        package = packagesHash.search(id)
+        not_delivered.append(package)
+
+
+print(truckDeliverPackages(truck2))
+
 
 print("\n----------WGUPS Routing Program----------\n")
 
@@ -37,7 +48,7 @@ while user_input != 'quit':
     elif user_input == 'search':
         search_input = int(input("Enter the package ID:"))
         try:
-            package = packages.search(search_input)
+            package = packagesHash.search(search_input)
             print(package)
         except ValueError:
             print("Invalid input")
