@@ -52,9 +52,7 @@ packageHash = HashMap()
 
 def loadDistanceData(filename):
     with open(filename) as distanceFile:
-        distances = csv.reader(distanceFile)
-        distances = list(distanceFile)
-    return distances
+        return list(csv.reader(distanceFile))
 
 
 def loadAddressData(filename):

@@ -11,4 +11,4 @@ def findDistance(x, y):
     return float(distance)
 
 
-print(findDistance(0, 3))
+print(distances)
