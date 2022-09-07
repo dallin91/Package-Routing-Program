@@ -25,13 +25,16 @@ truck2 = trucks.Truck(16,18, datetime.timedelta(hours=8),
 
 
 def truckDeliverPackages(truck):
+    # Creates list of Package IDs currently still on specified truck
     not_delivered = []
-    for id in truck.packages:
-        package = packagesHash.search(id)
-        not_delivered.append(package)
+    for pId in truck.packages:
+        #package = packagesHash.search(pId)
+        not_delivered.append(pId)
+
+    return not_delivered
 
 
-print(truckDeliverPackages(truck2))
+print(truckDeliverPackages(truck1))
 
 
 print("\n----------WGUPS Routing Program----------\n")
