@@ -46,10 +46,11 @@ def truckDeliverPackages(truck):
         truck.time += datetime.timedelta(hours=nextAddress / 18)
         nextPackage.delivered = truck.time
         nextPackage.departure = truck.depart_time
-        print(nextPackage.delivered)
 
 
-print(truckDeliverPackages(truck1))
+# Sending trucks on their delivery route
+truckDeliverPackages(truck2)
+truckDeliverPackages(truck1)
 
 
 print("\n----------WGUPS Routing Program----------\n")
