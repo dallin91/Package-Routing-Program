@@ -7,6 +7,7 @@ class Truck:
         self.miles = miles
         self.address = address
         self.loaded = loaded
+        self.time = depart_time
 
     def __str__(self):
         return "%s, %s, %s, %s, %s, %s, %s" % (self.capacity, self.speed, self.depart_time, self.packages,
