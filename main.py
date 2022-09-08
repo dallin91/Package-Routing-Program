@@ -34,11 +34,6 @@ def truckDeliverPackages(truck):
 
     truck.packages.clear()
 
-    # return not_delivered
-
-
-# print(truckDeliverPackages(truck1))
-
 
 print("\n----------WGUPS Routing Program----------\n")
 
