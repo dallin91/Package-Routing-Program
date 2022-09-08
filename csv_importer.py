@@ -17,6 +17,7 @@ class Package:
         self.start = start
         self.location = location
         self.status = status
+        self.delivered = None
 
     def __str__(self):
         return "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s" % (self.id, self.address, self.city, self.state,
