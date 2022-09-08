@@ -17,7 +17,7 @@ packagesHash = getPackages()
 
 # Create truck objects
 # I'm only using two trucks because there are only 2 drivers. The 3rd truck is useless without a driver
-truck1 = trucks.Truck(16, 18, datetime.timedelta(hours=8),
+truck1 = trucks.Truck(16, 18, datetime.timedelta(hours=10, minutes=20),
                       [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
                       0.0, "4001 South 700 East", None)
 truck2 = trucks.Truck(16, 18, datetime.timedelta(hours=8),
@@ -29,10 +29,27 @@ def truckDeliverPackages(truck):
     # Creates list of Package IDs currently still on specified truck
     not_delivered = []
     for pId in truck.packages:
-        # package = packagesHash.search(pId)
-        not_delivered.append(pId)
+        package = packagesHash.search(pId)
+        not_delivered.append(package)
 
-    truck.packages.clear()
+    while len(not_delivered) > 0:
+        nextAddress = 2000
+        nextPackage = None
+        for p in not_delivered:
+            if findDistance(getAddress(truck.address), getAddress(p.address)) <= nextAddress:
+                nextAddress = findDistance(getAddress(truck.address), getAddress(p.address))
+                nextPackage = p
+        truck.packages.append(nextPackage.id)
+        not_delivered.remove(nextPackage)
+        truck.miles += nextAddress
+        truck.address = nextPackage.address
+        truck.time += datetime.timedelta(hours=nextAddress / 18)
+        nextPackage.delivered = truck.time
+        nextPackage.departure = truck.depart_time
+        print(nextPackage.delivered)
+
+
+print(truckDeliverPackages(truck1))
 
 
 print("\n----------WGUPS Routing Program----------\n")
