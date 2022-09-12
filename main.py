@@ -52,7 +52,6 @@ def truckDeliverPackages(truck):
 truckDeliverPackages(truck2)
 truckDeliverPackages(truck1)
 
-
 print("\n----------WGUPS Routing Program----------\n")
 
 user_input = input("OPTIONS:\n"
@@ -63,17 +62,22 @@ user_input = input("OPTIONS:\n"
 
 while user_input != 'quit':
 
-    if user_input == 'hash':
-        print(packageIDs)
+    if user_input == 'all':
+        input_time = input("What time would you like to see status of packages? Format: HH:MM:SS ")
     elif user_input == 'search':
-        search_input = int(input("Enter the package ID:"))
+        search_input = int(input("Enter the package ID: "))
         try:
             package = packagesHash.search(search_input)
+            input_time = input("What time would you like to see status of package #{}? "
+                               "Format: HH:MM:SS ".format(search_input))
             print(package)
         except ValueError:
             print("Invalid input")
             exit()
-    user_input = input("UPDATE THIS LATER\n"
-                       "Type 'quit' if you would like to quit\n"
-                       "Type 'search' to look up a package\n"
-                       "Type 'hash' if you would like to see hash\n").lower()
+    elif user_input == 'miles':
+        print("Total miles driven:", truck1.miles + truck2.miles)
+    user_input = input("OPTIONS:\n"
+                       "Type 'all' if you would like to see status of all packages\n"
+                       "Type 'search' to look up a specific package\n"
+                       "Type 'miles' if you would like to see total mileage of all trucks\n"
+                       "Type 'quit' if you would like to quit the program\n").lower()
