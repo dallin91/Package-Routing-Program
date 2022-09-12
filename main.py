@@ -64,13 +64,18 @@ while user_input != 'quit':
 
     if user_input == 'all':
         input_time = input("What time would you like to see status of packages? Format: HH:MM:SS ")
+        (h, m, s) = input_time.split(":")
+        converted_time = datetime.timedelta(hours=int(h), minutes=int(m), seconds=int(s))
     elif user_input == 'search':
         search_input = int(input("Enter the package ID: "))
         try:
             package = packagesHash.search(search_input)
             input_time = input("What time would you like to see status of package #{}? "
                                "Format: HH:MM:SS ".format(search_input))
-            print(package)
+            (h, m, s) = input_time.split(":")
+            converted_time = datetime.timedelta(hours=int(h), minutes=int(m), seconds=int(s))
+            package.updateStatus(converted_time)
+            print("\nPackage #{} \nStatus: {}\n".format(search_input, package.status))
         except ValueError:
             print("Invalid input")
             exit()
