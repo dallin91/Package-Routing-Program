@@ -55,10 +55,11 @@ truckDeliverPackages(truck1)
 
 print("\n----------WGUPS Routing Program----------\n")
 
-user_input = input("UPDATE THIS LATER\n"
-                   "Type 'quit' if you would like to quit\n"
-                   "Type 'search' to look up a package\n"
-                   "Type 'hash' if you would like to see hash\n").lower()
+user_input = input("OPTIONS:\n"
+                   "Type 'all' if you would like to see status of all packages\n"
+                   "Type 'search' to look up a specific package\n"
+                   "Type 'miles' if you would like to see total mileage of all trucks\n"
+                   "Type 'quit' if you would like to quit the program\n").lower()
 
 while user_input != 'quit':
 
