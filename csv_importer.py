@@ -26,12 +26,12 @@ class Package:
                                                                self.start, self.location, self.status)
 
     def updateStatus(self, converted_time):
-        if self.delivered < converted_time:
-            self.status = "Delivered"
-        elif self.departure > converted_time:
+        if converted_time < self.departure:
+            self.status = "At Hub"
+        elif converted_time > self.delivered:
             self.status = "En route to destination"
         else:
-            self.status = "At Hub"
+            self.status = "Delivered"
 
 
 def loadPackageData(filename):
