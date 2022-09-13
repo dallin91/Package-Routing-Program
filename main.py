@@ -1,5 +1,4 @@
 # Author: Dallin Reeves   ID: 001176010
-# Created: 15 August 2022
 
 from csv_importer import getPackageIDs, getPackages, packageHash
 from csv_importer import loadPackageData, loadDistanceData, loadAddressData
@@ -18,10 +17,10 @@ packagesHash = getPackages()
 # Create truck objects
 # I'm only using two trucks because there are only 2 drivers. The 3rd truck is useless without a driver
 truck1 = trucks.Truck(16, 18, datetime.timedelta(hours=10, minutes=20),
-                      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+                      [2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17, 21, 22, 23, 24, 25, 26, 27, 28, 32],
                       0.0, "4001 South 700 East", None)
 truck2 = trucks.Truck(16, 18, datetime.timedelta(hours=8),
-                      [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+                      [1, 3, 13, 14, 15, 16, 18, 19, 20, 29, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40],
                       0.0, "4001 South 700 East", None)
 
 
@@ -66,6 +65,11 @@ while user_input != 'quit':
         input_time = input("What time would you like to see status of packages? Format: HH:MM:SS ")
         (h, m, s) = input_time.split(":")
         converted_time = datetime.timedelta(hours=int(h), minutes=int(m), seconds=int(s))
+
+        for i in packageIDs:
+            package = packagesHash.search(i)
+            package.updateStatus(converted_time)
+            print("\nPackage #{} \nStatus: {}\n".format(i, package.status))
     elif user_input == 'search':
         search_input = int(input("Enter the package ID: "))
         try:
@@ -80,7 +84,7 @@ while user_input != 'quit':
             print("Invalid input")
             exit()
     elif user_input == 'miles':
-        print("Total miles driven:", truck1.miles + truck2.miles)
+        print("\nTotal miles driven:", truck1.miles + truck2.miles, "\n")
     user_input = input("OPTIONS:\n"
                        "Type 'all' if you would like to see status of all packages\n"
                        "Type 'search' to look up a specific package\n"
