@@ -31,6 +31,7 @@ def truckDeliverPackages(truck):
         package = packagesHash.search(pId)
         not_delivered.append(package)
 
+    # Sets up nearest neighbor algorithm for delivering packages
     while len(not_delivered) > 0:
         nextAddress = 2000
         nextPackage = None
