@@ -28,7 +28,7 @@ class Package:
     def updateStatus(self, converted_time):
         if converted_time < self.departure:
             self.status = "At Hub"
-        elif converted_time > self.delivered:
+        elif converted_time < self.delivered:
             self.status = "En route to destination"
         else:
             self.status = "Delivered"
