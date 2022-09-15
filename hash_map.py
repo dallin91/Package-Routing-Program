@@ -25,7 +25,7 @@ class HashMap:
     def __setitem__(self, key, value):
         return self.insert(key, value)
 
-    # O(log n)
+    # O(n)
     def search(self, key):
         bucket = hash(key) % len(self.table)
         bucket_list = self.table[bucket]
