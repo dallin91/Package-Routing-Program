@@ -1,4 +1,5 @@
 class Truck:
+    # O(1)
     def __init__(self, capacity, speed, depart_time, packages, miles, address, loaded):
         self.capacity = capacity
         self.speed = speed
@@ -9,6 +10,7 @@ class Truck:
         self.loaded = loaded
         self.time = depart_time
 
+    # O(1)
     def __str__(self):
         return "%s, %s, %s, %s, %s, %s, %s" % (self.capacity, self.speed, self.depart_time, self.packages,
                                                self.miles, self.address, self.loaded)

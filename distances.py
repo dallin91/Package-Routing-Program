@@ -4,6 +4,7 @@ distances = loadDistanceData('Distances.csv')
 
 
 # Method to find distance between two addresses
+# O(1)
 def findDistance(x, y):
     distance = distances[x][y]
     if distance == '':

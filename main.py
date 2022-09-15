@@ -24,6 +24,7 @@ truck2 = trucks.Truck(16, 18, datetime.timedelta(hours=8),
                       0.0, "4001 South 700 East", None)
 
 
+# O(n^2)
 def truckDeliverPackages(truck):
     # Creates list of Package IDs currently still on specified truck
     not_delivered = []
@@ -60,6 +61,7 @@ user_input = input("OPTIONS:\n"
                    "Type 'miles' if you would like to see total mileage of all trucks\n"
                    "Type 'quit' if you would like to quit the program\n").lower()
 
+# O(n^2)
 while user_input != 'quit':
 
     if user_input == 'all':

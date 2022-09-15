@@ -4,6 +4,7 @@ from hash_map import HashMap
 
 
 class Package:
+    # O(1)
     def __init__(self, id, address, city, state, zip, deadline, weight, note,
                  start, location, status):
         self.id = id
@@ -20,11 +21,13 @@ class Package:
         self.delivered = None
         self.departure = None
 
+    # O(1)
     def __str__(self):
         return "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s" % (self.id, self.address, self.city, self.state,
                                                    self.zip, self.deadline, self.weight, self.note,
                                                                self.start, self.location, self.status)
 
+    # O(1)
     def updateStatus(self, converted_time):
         if converted_time < self.departure:
             self.status = "At Hub"
@@ -34,6 +37,7 @@ class Package:
             self.status = "Delivered"
 
 
+    # O(n^2)
 def loadPackageData(filename):
     with open(filename) as packageFile:
         packageData = csv.reader(packageFile)
@@ -60,16 +64,19 @@ def loadPackageData(filename):
 packageHash = HashMap()
 
 
+# O(n)
 def loadDistanceData(filename):
     with open(filename) as distanceFile:
         return list(csv.reader(distanceFile))
 
 
+    # O(n)
 def loadAddressData(filename):
     with open(filename) as addressFile:
         return list(csv.reader(addressFile))
 
 
+    # O(n^2)
 def getPackageIDs():
     all = []
     for bucket in packageHash.table:
@@ -78,6 +85,7 @@ def getPackageIDs():
     return sorted(all)
 
 
+    # O(1)
 def getPackages():
     # for i in range (len(packageHash.table)+1):
     #     print("Key: {} and Package: {}".format(i+1, packageHash.search(i+1)))
