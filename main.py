@@ -17,7 +17,7 @@ packagesHash = getPackages()
 # Create truck objects
 # I'm only using two trucks because there are only 2 drivers. The 3rd truck is useless without a driver
 truck1 = trucks.Truck(16, 18, datetime.timedelta(hours=10, minutes=20),
-                      [2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17, 21, 22, 23, 24, 25, 26, 27, 28, 32],
+                      [6, 2, 4, 5, 7, 8, 9, 10, 11, 12, 17, 21, 22, 23, 24, 25, 26, 27, 28, 32],
                       0.0, "4001 South 700 East", None)
 truck2 = trucks.Truck(16, 18, datetime.timedelta(hours=8),
                       [1, 3, 13, 14, 15, 16, 18, 19, 20, 29, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40],
@@ -72,7 +72,15 @@ while user_input != 'quit':
         for i in packageIDs:
             package = packagesHash.search(i)
             package.updateStatus(converted_time)
-            print("\nPackage #{} \nStatus: {}\n".format(i, package.status))
+            if package.status == "Delivered":
+                print("Package #{}\t\tStatus: Delivered at {}\t\tDeadline: {}".format(i, package.delivered,
+                                                                                  package.deadline))
+            else:
+                print("Package #{}\t\tStatus: {}\t\tDeadline: {}".format(i, package.status, package.deadline))
+
+            # print("\nPackage #{} \tStatus: {}\t Deadline: {}\t Time Delivered: {}".format(i, package.status,
+            #                                                                               package.deadline,
+            #                                                                               package.delivered))
     elif user_input == 'search':
         search_input = int(input("Enter the package ID: "))
         try:
